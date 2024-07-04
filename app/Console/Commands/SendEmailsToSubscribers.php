@@ -28,7 +28,7 @@ class SendEmailsToSubscribers extends Command
     public function handle()
     {
         SubscriptionPost::raw()->orderBy('id', 'asc')
-            ->chunk(1000, function ($subPosts) {
+            ->chunk(env('EMAIL_CHUNK_SIZE', 1000), function ($subPosts) {
                 foreach ($subPosts as $subPost) {
                     SendEmailJob::dispatch($subPost);
                     SubscriptionPost::find($subPost->id)->update(['status' => 'queued']);

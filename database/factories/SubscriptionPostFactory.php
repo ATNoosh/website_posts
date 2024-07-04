@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Console\Commands\MailStatuses;
+use App\Constants\MailStatuses;
 use App\Models\Post;
 use App\Models\SubscriptionPost;
 use App\Models\User;

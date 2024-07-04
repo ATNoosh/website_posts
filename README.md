@@ -7,6 +7,7 @@
 ### Install
 cp .env.example .env  
 config .env for database and mail
+config .env for chunk sizes
 ```composer install```  
 ```php artisan migrate```  
 ```php artisan db:seed```   [Optional]

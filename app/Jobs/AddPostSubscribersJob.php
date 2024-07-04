@@ -28,12 +28,12 @@ class AddPostSubscribersJob implements ShouldQueue
     public function handle(): void
     {
         $post = $this->post;
-        
+
         $this->post
             ->website
             ->subscribed_users()
             ->orderBy('users_subscriptions.id', 'asc')
-            ->chunk(500, function ($users) use ($post) {
+            ->chunk(env('INSERT_SUB_CHUNK_SIZE', 500), function ($users) use ($post) {
                 foreach ($users as $user) {
                     SubscriptionPost::create([
                         'user_id' => $user->id,
