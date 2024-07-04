@@ -5,7 +5,9 @@ namespace App\Constants;
 abstract class MailStatuses
 {
     const RAW = 'raw';
+
     const QEUEUED = 'queued';
+
     const SENT = 'sent';
 
     public static function toArray(): array

@@ -18,7 +18,7 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            'website_id' => Website::inRandomOrder()->first()?->id,            
+            'website_id' => Website::inRandomOrder()->first()?->id,
             'post_address' => fake()->url(),
             'title' => fake()->title(),
             'description' => fake()->text(),

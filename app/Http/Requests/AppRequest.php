@@ -12,7 +12,7 @@ class AppRequest extends FormRequest
     {
         throw new HttpResponseException(response()->json([
             'errors' => $validator->errors(),
-            'status' => true
+            'status' => true,
         ], 422));
     }
 }

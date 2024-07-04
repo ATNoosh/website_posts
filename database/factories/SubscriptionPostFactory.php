@@ -22,12 +22,14 @@ class SubscriptionPostFactory extends Factory
     {
         $postID = Post::inRandomOrder()->first()?->id;
         $userID = User::inRandomOrder()->first()?->id;
-        if (!SubscriptionPost::where('user_id', $userID)->where('post_id', $postID)->exists())
+        if (! SubscriptionPost::where('user_id', $userID)->where('post_id', $postID)->exists()) {
             return [
                 'post_id' => $postID,
                 'user_id' => $userID,
                 'status' => fake()->randomElement(MailStatuses::toArray()),
             ];
+        }
+
         return [];
     }
 }

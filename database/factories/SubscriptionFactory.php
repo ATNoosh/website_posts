@@ -22,12 +22,14 @@ class SubscriptionFactory extends Factory
         for ($i = 0; $i < 100; $i++) {
             $websiteID = Website::inRandomOrder()->first()?->id;
             $userID = User::inRandomOrder()->first()?->id;
-            if (!Subscription::where('user_id', $userID)->where('website_id', $websiteID)->exists())
+            if (! Subscription::where('user_id', $userID)->where('website_id', $websiteID)->exists()) {
                 return [
                     'website_id' => $websiteID,
                     'user_id' => $userID,
                 ];
+            }
         }
+
         return [];
     }
 }

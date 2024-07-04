@@ -2,10 +2,6 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Contracts\Validation\Validator;
-use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Http\Exceptions\HttpResponseException;
-
 class AddPost extends AppRequest
 {
     /**
@@ -27,7 +23,7 @@ class AddPost extends AppRequest
             'website_id' => ['required', 'exists:websites,id'],
             'post_address' => ['required', 'url', 'string', 'min:3', 'max:1000', 'unique:posts,post_address'],
             'title' => ['required', 'string', 'min:3', 'max:1000'],
-            'description' => ['required', 'string', 'min:3', 'max:1000']
+            'description' => ['required', 'string', 'min:3', 'max:1000'],
         ];
     }
 }

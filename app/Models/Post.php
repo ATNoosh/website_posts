@@ -15,7 +15,7 @@ class Post extends Model
         'website_id',
         'post_address',
         'title',
-        'description'
+        'description',
     ];
 
     public function website(): BelongsTo

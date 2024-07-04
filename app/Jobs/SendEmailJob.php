@@ -3,7 +3,6 @@
 namespace App\Jobs;
 
 use App\Mail\PostCreatedMail;
-use App\Models\Post;
 use App\Models\SubscriptionPost;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;

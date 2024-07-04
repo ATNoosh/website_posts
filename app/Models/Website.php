@@ -13,7 +13,7 @@ class Website extends Model
 
     protected $fillable = ['name', 'website_address'];
 
-    public function posts():HasMany
+    public function posts(): HasMany
     {
         return $this->hasMany(Post::class);
     }

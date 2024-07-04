@@ -4,8 +4,6 @@ namespace App\Listeners;
 
 use App\Events\PostCreated;
 use App\Jobs\AddPostSubscribersJob;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
 
 class AddPostSubscribers
 {
