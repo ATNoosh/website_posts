@@ -13,6 +13,8 @@ class PostsController extends Controller
         $validated = $request->validated();
         $post = Post::create($validated);
 
+        
+
         return response()->json($post);
     }
 }

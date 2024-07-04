@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\SubscriptionPost;
 use Illuminate\Console\Command;
 
 class SendEmailsToSubscribers extends Command
@@ -25,6 +26,8 @@ class SendEmailsToSubscribers extends Command
      */
     public function handle()
     {
-        
+        SubscriptionPost::raw()->orderBy('id','asc')->chunck(1000, function($supPosts){
+            
+        });
     }
 }

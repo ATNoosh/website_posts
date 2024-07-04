@@ -10,13 +10,15 @@ class Subscription extends Model
 {
     use HasFactory;
 
+    protected $table = 'users_subscriptions';
+
     protected $fillable = ['website_id', 'user_id'];
 
     public function website(): BelongsTo
     {
         return $this->belongsTo(Website::class);
     }
-    
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
