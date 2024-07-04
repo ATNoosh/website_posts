@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Jobs\SendEmailJob;
 use App\Models\SubscriptionPost;
 use Illuminate\Console\Command;
 
@@ -26,8 +27,12 @@ class SendEmailsToSubscribers extends Command
      */
     public function handle()
     {
-        SubscriptionPost::raw()->orderBy('id','asc')->chunk(1000, function($supPosts){
-            
-        });
+        SubscriptionPost::raw()->orderBy('id', 'asc')
+            ->chunk(1000, function ($subPosts) {
+                foreach ($subPosts as $subPost) {
+                    SendEmailJob::dispatch($subPost);
+                    SubscriptionPost::find($subPost->id)->update(['status' => 'queued']);
+                }
+            });
     }
 }
