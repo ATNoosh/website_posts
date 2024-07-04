@@ -26,7 +26,7 @@ class SendEmailsToSubscribers extends Command
      */
     public function handle()
     {
-        SubscriptionPost::raw()->orderBy('id','asc')->chunck(1000, function($supPosts){
+        SubscriptionPost::raw()->orderBy('id','asc')->chunk(1000, function($supPosts){
             
         });
     }
