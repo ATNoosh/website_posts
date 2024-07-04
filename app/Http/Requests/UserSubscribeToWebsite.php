@@ -22,9 +22,10 @@ class UserSubscribeToWebsite extends AppRequest
     public function rules(): array
     {
         return [
-            'website_id' => ['required', 'exists:websites,id'],
+            'website_id' => ['required', 'numeric', 'exists:websites,id'],
             'user_id' => [
                 'required',
+                'numeric',
                 'exists:users,id',
                 Rule::unique('users_subscriptions')->where(function ($query) {
                     return $query->where('website_id', $this->website_id)

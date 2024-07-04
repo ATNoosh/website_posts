@@ -20,7 +20,7 @@ class AddPost extends AppRequest
     public function rules(): array
     {
         return [
-            'website_id' => ['required', 'exists:websites,id'],
+            'website_id' => ['required', 'numeric', 'exists:websites,id'],
             'post_address' => ['required', 'url', 'string', 'min:3', 'max:1000', 'unique:posts,post_address'],
             'title' => ['required', 'string', 'min:3', 'max:1000'],
             'description' => ['required', 'string', 'min:3', 'max:1000'],
