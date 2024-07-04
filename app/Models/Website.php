@@ -11,7 +11,7 @@ class Website extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['website_address'];
+    protected $fillable = ['name', 'website_address'];
 
     public function posts():HasMany
     {
