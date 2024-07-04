@@ -13,6 +13,6 @@ class SubscriptionPostsSeeder extends Seeder
      */
     public function run(): void
     {
-        SubscriptionPost::factory()->create(5000);
+        SubscriptionPost::factory()->count(1000)->create();
     }
 }

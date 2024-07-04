@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Console\Commands\MailStatuses;
 use App\Models\Post;
+use App\Models\SubscriptionPost;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -19,10 +20,14 @@ class SubscriptionPostFactory extends Factory
      */
     public function definition(): array
     {
-        return [
-            'post_id' => Post::inRandomOrder()->first()?->id,
-            'user_id' => User::inRandomOrder()->first()?->id,
-            'status' => fake()->randomElement(MailStatuses::toArray()),
-        ];
+        $postID = Post::inRandomOrder()->first()?->id;
+        $userID = User::inRandomOrder()->first()?->id;
+        if (!SubscriptionPost::where('user_id', $userID)->where('post_id', $postID)->exists())
+            return [
+                'post_id' => $postID,
+                'user_id' => $userID,
+                'status' => fake()->randomElement(MailStatuses::toArray()),
+            ];
+        return [];
     }
 }

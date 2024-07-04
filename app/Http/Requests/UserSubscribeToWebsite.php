@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class UserSubscribeToWebsite extends FormRequest
+class UserSubscribeToWebsite extends AppRequest
 {
     /**
      * Determine if the user is authorized to make this request.

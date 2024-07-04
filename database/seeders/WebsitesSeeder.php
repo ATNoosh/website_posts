@@ -13,6 +13,6 @@ class WebsitesSeeder extends Seeder
      */
     public function run(): void
     {
-        Website::factory()->create(5000);
+        Website::factory()->count(500)->create();
     }
 }

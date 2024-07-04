@@ -17,8 +17,8 @@ class WebsiteFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->company(),
-            'website_address' => fake()->url(),
+            'name' => fake()->unique()->company(),
+            'website_address' => fake()->unique()->url(),
         ];
     }
 }

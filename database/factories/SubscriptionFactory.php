@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Subscription;
 use App\Models\User;
 use App\Models\Website;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -18,9 +19,15 @@ class SubscriptionFactory extends Factory
      */
     public function definition(): array
     {
-        return [
-            'website_id' => Website::inRandomOrder()->first()?->id,
-            'user_id' => User::inRandomOrder()->first()?->id,
-        ];
+        for ($i = 0; $i < 100; $i++) {
+            $websiteID = Website::inRandomOrder()->first()?->id;
+            $userID = User::inRandomOrder()->first()?->id;
+            if (!Subscription::where('user_id', $userID)->where('website_id', $websiteID)->exists())
+                return [
+                    'website_id' => $websiteID,
+                    'user_id' => $userID,
+                ];
+        }
+        return [];
     }
 }
