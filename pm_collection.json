@@ -1,0 +1,204 @@
+{
+	"info": {
+		"_postman_id": "c960d6fe-33f0-4b67-8ce0-4fc6544e6ce6",
+		"name": "WebsitePosts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2198930"
+	},
+	"item": [
+		{
+			"name": "Create Post",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "website_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "post_address",
+							"value": "dgturtuertwer",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "jktyutyu",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "tityutyuyt",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}/posts",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Post",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "website_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "post_address",
+									"value": "dgturtuertwer",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "jktyutyu",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "tityutyuyt",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/posts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"status": "Unprocessable Content",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8001"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 04 Jul 2024 16:40:46 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errors\": {\n        \"post_address\": [\n            \"The post address field must be a valid URL.\"\n        ]\n    },\n    \"status\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "User Subscribe",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "website_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "user_id",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}/subscribe",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"subscribe"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://127.0.0.1:8001/api",
+			"type": "string"
+		}
+	]
+}
