@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UserSubscribeToWebsite extends FormRequest
 {
@@ -23,7 +24,14 @@ class UserSubscribeToWebsite extends FormRequest
     {
         return [
             'website_id' => ['required', 'exists:websites,id'],
-            'user_id' => ['required', 'exists:users,id'],
+            'user_id' => [
+                'required',
+                'exists:users,id',
+                Rule::unique('users_subscriptions')->where(function ($query) {
+                    return $query->where('website_id', $this->website_id)
+                        ->where('user_id', $this->user_id);
+                })
+            ],
         ];
     }
 }
